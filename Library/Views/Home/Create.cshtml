@@ -1,0 +1,31 @@
+﻿@model Library.Models.Libery
+
+@{
+    ViewData["Title"] = "Create New Libery";
+}
+
+<h1>יצירת ספריה חדשה</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateLibery">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="zzaner" class="control-label"></label>
+                <input asp-for="zzaner" class="form-control" />
+                <span asp-validation-for="zzaner" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="הקם ספרייה" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">חזור אל רשימת הספריות</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

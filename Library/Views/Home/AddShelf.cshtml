@@ -1,0 +1,41 @@
+﻿@model Library.Models.Shelf
+
+@{
+    ViewData["Title"] = "AddShelf";
+}
+
+<h1>הוסף מדף לספרייה</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddShelfToLibery">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+
+                <input asp-for="LibId" value="@ViewBag.id" hidden="hidden" />
+
+            </div>
+            <div class="form-group">
+                <label asp-for="High" class="control-label"></label>
+                <input asp-for="High" class="form-control" />
+                <span asp-validation-for="High" class="text-danger"></span>
+            </div>
+         @*    <div class="form-group">
+                <label asp-for="liberies" class="control-label"></label>
+                <input  type="text" name="liberies" value="@ViewBag.id" />
+            </div> *@
+            <div class="form-group">
+                <input type="submit" value="הוסף מדף" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">חזור אל רשימת הספריות</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

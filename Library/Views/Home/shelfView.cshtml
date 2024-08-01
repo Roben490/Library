@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Library.Models.Shelf>
+
+@{
+    ViewData["Title"] = "shelfView";
+}
+
+<h1>shelfView</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.High)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.High)
+                    <div id="maxCeack" style="display:none">
+                        <input type="text"  value="@item.High" />
+                    </div>
+            </td>
+            <td>
+                    @Html.ActionLink("הוספת ספר למדף ", "AddBook", new { id = item.Id })
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

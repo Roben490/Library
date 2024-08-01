@@ -1,0 +1,48 @@
+﻿@model Library.Models.Book
+
+@{
+    ViewData["Title"] = "AddBook";
+}
+
+<h1>הוסף ספר</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddBookToLib">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="slfid" value="@ViewBag.id" hidden="hidden"/>
+            </div>
+            <div class="form-group">
+                <input asp-for="High" value="@ViewBag.id" hidden="hidden" id="maxH"/>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="High" class="control-label"></label>
+                <input asp-for="High" class="form-control" id="highCeack" onchange="cheack()"/>
+                <span asp-validation-for="High" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Widgh" class="control-label"></label>
+                <input asp-for="Widgh" class="form-control" />
+                <span asp-validation-for="Widgh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="הוסף ספר" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">חזור אל רשימת הספריות</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
